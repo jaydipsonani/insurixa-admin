@@ -1,0 +1,37 @@
+@import '../../styles/variables.scss';
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.success {
+  background-color: rgba($success, 0.1);
+  color: $success;
+}
+
+.info {
+  background-color: rgba($info, 0.1);
+  color: $info;
+}
+
+.warning {
+  background-color: rgba($warning, 0.1);
+  color: $warning;
+}
+
+.error {
+  background-color: rgba($error, 0.1);
+  color: $error;
+}
+
+.neutral {
+  background-color: var(--bg);
+  color: var(--text-muted);
+}

@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--bg);
+}
+
+.main_content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: $sidebar-width;
+  transition: margin-left $sidebar-width $transition-speed ease;
+  min-width: 0;
+
+  &.collapsed {
+    margin-left: $sidebar-collapsed;
+  }
+}
+
+.page_wrapper {
+  padding: 30px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .main_content {
+    margin-left: 0 !important;
+  }
+}

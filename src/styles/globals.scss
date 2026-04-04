@@ -1,0 +1,84 @@
+@import './variables.scss';
+
+:root {
+  --primary: #{$primary-color};
+  --accent: #{$accent-color};
+  --bg: #{$bg-color};
+  --card: #{$card-bg};
+  --text: #{$text-primary};
+  --text-muted: #{$text-secondary};
+  --border: #{$border-color};
+  --font-inter: 'Inter', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+[data-theme='dark'] {
+  --primary: #{$primary-color};
+  --accent: #{$accent-color};
+  --bg: #{$dark-bg};
+  --card: #{$dark-card};
+  --text: #{$dark-text-primary};
+  --text-muted: #{$dark-text-secondary};
+  --border: #{$dark-border};
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color $transition-speed ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  outline: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

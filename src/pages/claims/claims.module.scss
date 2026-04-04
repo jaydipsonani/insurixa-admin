@@ -1,0 +1,185 @@
+@import '../../styles/variables.scss';
+
+.header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 1.8rem;
+    color: var(--text);
+  }
+
+  .header_actions {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.actions_pill {
+  display: flex;
+  gap: 8px;
+}
+
+.label_small {
+  font-size: 0.75rem; 
+  color: var(--text-muted);
+}
+
+.value_semibold {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.icon_success { color: $success; }
+.icon_error { color: $error; }
+
+.mt_10 { margin-top: 10px; }
+.mt_15 { margin-top: 15px; }
+
+.claim_description {
+  font-size: 0.9rem; 
+  color: var(--text-muted); 
+  line-height: 1.6;
+  background: var(--bg);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+
+.claim_detail {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.claim_info_group {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  
+  h4 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.claim_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.doc_list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.doc_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background-color: var(--bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+
+  .doc_name {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+}
+
+.status_timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-left: 20px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background-color: var(--border);
+  }
+
+  .timeline_item {
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--border);
+      border: 2px solid var(--card);
+    }
+
+    &.active::after {
+      background-color: $accent-color;
+    }
+
+    p { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
+    span { font-size: 0.75rem; color: var(--text-muted); }
+  }
+}
+
+/* Modal Form Styles */
+.form_grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-size: 0.95rem;
+    width: 100%;
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: $accent-color;
+      box-shadow: 0 0 0 3px rgba($accent-color, 0.1);
+    }
+
+    &::placeholder {
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+  }
+
+  textarea {
+    height: 120px;
+    resize: none;
+  }
+}

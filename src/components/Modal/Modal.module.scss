@@ -1,0 +1,112 @@
+@import '../../styles/variables.scss';
+
+.modal_root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1001;
+}
+
+.modal_wrapper {
+  position: relative;
+  z-index: 1002;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  pointer-events: none; // Allows clicking the backdrop through the wrapper
+}
+
+.modal {
+  background-color: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  pointer-events: auto; // Re-enables clicking for the modal itself
+  overflow: hidden;
+  position: relative;
+  
+  &.sm { width: 400px; }
+  &.md { width: 600px; }
+  &.lg { width: 800px; }
+  &.xl { width: 1000px; }
+
+  @media (max-width: 768px) {
+    width: 95% !important;
+  }
+}
+
+.modal_header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
+    font-size: 1.25rem;
+    color: var(--text);
+    margin: 0;
+    font-family: var(--font-poppins);
+  }
+
+  .close_btn {
+    padding: 8px;
+    border-radius: 8px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    background: transparent;
+
+    &:hover {
+      background-color: var(--bg);
+      color: $error;
+    }
+  }
+}
+
+.modal_body {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  
+  // Custom scrollbar for modal body
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+  }
+}
+
+.modal_footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  background-color: rgba(var(--bg), 0.3);
+}

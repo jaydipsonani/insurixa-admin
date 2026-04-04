@@ -1,0 +1,144 @@
+@import '../../styles/variables.scss';
+
+.table_container {
+  width: 100%;
+}
+
+.table_actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.search_wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+
+  .search_icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--card);
+    font-size: 0.9rem;
+    transition: all 0.2s;
+
+    &:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba($accent-color, 0.1);
+    }
+  }
+}
+
+.filter_btns {
+  display: flex;
+  gap: 10px;
+}
+
+.table_wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background-color: var(--bg);
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    white-space: nowrap;
+    
+    &:hover {
+      color: var(--text);
+    }
+
+    .sort_icon {
+      margin-left: 6px;
+      vertical-align: middle;
+      opacity: 0.5;
+    }
+  }
+
+  td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background-color: rgba(var(--bg), 0.3);
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+
+  .info {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .btns {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.page_btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  
+  &.active {
+    background-color: $accent-color;
+    color: white;
+    border-color: $accent-color;
+  }
+
+  &:hover:not(.active) {
+    background-color: var(--bg);
+    color: var(--text);
+  }
+}
