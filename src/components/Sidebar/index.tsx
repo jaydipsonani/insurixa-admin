@@ -92,11 +92,12 @@ const menuItems: MenuItem[] = [
 
 interface SidebarProps {
   isCollapsed: boolean;
+  isMobileOpen?: boolean;
   toggleSidebar: () => void;
   onLogout?: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, toggleSidebar, onLogout }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, isMobileOpen, toggleSidebar, onLogout }) => {
   const router = useRouter();
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
@@ -107,7 +108,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, toggleSidebar, onLogout 
 
   const isActive = (path: string) => router.pathname.startsWith(path);
 
-  const sidebarClasses = `${styles.sidebar} ${isCollapsed ? styles.collapsed : ''}`.trim();
+  const sidebarClasses = `${styles.sidebar} ${isCollapsed ? styles.collapsed : ''} ${isMobileOpen ? styles.mobile_open : ''}`.trim();
 
   return (
     <aside className={sidebarClasses}>

@@ -11,7 +11,7 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  transition: width $transition-speed ease;
+  transition: all $transition-speed ease;
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -34,6 +34,28 @@
     .sidebar_header {
       padding: 20px 0;
       justify-content: center;
+    }
+  }
+
+  @media (max-width: 991px) {
+    transform: translateX(-100%);
+    width: 280px !important;
+
+    &.mobile_open {
+      transform: translateX(0);
+    }
+
+    .logo_text, .menu_label, .submenu_arrow {
+      display: block !important;
+    }
+
+    .menu_item {
+      justify-content: flex-start !important;
+      padding: 12px 15px !important;
+      
+      .menu_icon {
+        margin-right: 12px !important;
+      }
     }
   }
 }

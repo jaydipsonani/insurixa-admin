@@ -11,12 +11,23 @@
   display: flex;
   flex-direction: column;
   margin-left: $sidebar-width;
-  transition: margin-left $sidebar-width $transition-speed ease;
+  transition: all $transition-speed ease;
   min-width: 0;
 
   &.collapsed {
     margin-left: $sidebar-collapsed;
   }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 99;
 }
 
 .page_wrapper {
@@ -26,8 +37,12 @@
   margin: 0 auto;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
   .main_content {
     margin-left: 0 !important;
+  }
+
+  .page_wrapper {
+    padding: 20px 15px;
   }
 }

@@ -14,6 +14,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, title = 'Insurixa Admin' }) => {
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -31,9 +32,24 @@ const Layout: React.FC<LayoutProps> = ({ children, title = 'Insurixa Admin' }) =
       setIsDarkMode(true);
       document.documentElement.setAttribute('data-theme', 'dark');
     }
+
+    const handleResize = () => {
+      if (window.innerWidth > 991) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [router]);
 
-  const toggleSidebar = () => setIsCollapsed(!isCollapsed);
+  const toggleSidebar = () => {
+    if (window.innerWidth < 992) {
+      setIsMobileMenuOpen(!isMobileMenuOpen);
+    } else {
+      setIsCollapsed(!isCollapsed);
+    }
+  };
   
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
@@ -66,16 +82,21 @@ const Layout: React.FC<LayoutProps> = ({ children, title = 'Insurixa Admin' }) =
   }
 
   return (
-    <div className={styles.layout}>
+    <div className={`${styles.layout} ${isMobileMenuOpen ? styles.mobile_open : ''}`.trim()}>
       <Head>
         <title>{title} | Insurixa</title>
       </Head>
 
       <Sidebar 
         isCollapsed={isCollapsed} 
+        isMobileOpen={isMobileMenuOpen}
         toggleSidebar={toggleSidebar} 
         onLogout={handleLogout}
       />
+
+      {isMobileMenuOpen && (
+        <div className={styles.overlay} onClick={() => setIsMobileMenuOpen(false)} />
+      )}
 
       <main className={`${styles.main_content} ${isCollapsed ? styles.collapsed : ''}`.trim()}>
         <Topbar 

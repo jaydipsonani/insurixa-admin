@@ -57,11 +57,15 @@
 }
 
 .modal_header {
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 1.5rem;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 640px) {
+    padding: 1rem;
+  }
 
   h2 {
     font-size: 1.25rem;
@@ -86,8 +90,12 @@
 
 .modal_body {
   flex: 1;
-  padding: 2rem;
+  padding: 1.5rem;
   overflow-y: auto;
+
+  @media (max-width: 640px) {
+    padding: 1.25rem 1rem;
+  }
   
   // Custom scrollbar for modal body
   &::-webkit-scrollbar {
@@ -103,10 +111,19 @@
 }
 
 .modal_footer {
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 1.5rem;
   border-top: 1px solid var(--border);
   display: flex;
   gap: 12px;
   justify-content: flex-end;
   background-color: rgba(var(--bg), 0.3);
+
+  @media (max-width: 640px) {
+    padding: 1rem;
+    flex-direction: column-reverse;
+    
+    button {
+      width: 100%;
+    }
+  }
 }

@@ -17,16 +17,40 @@
 .left_section {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 
   .toggle_btn {
     color: var(--text-muted);
     padding: 8px;
     border-radius: 8px;
+    transition: all 0.2s;
     
     &:hover {
       background-color: var(--bg);
       color: var(--primary);
+    }
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  .mobile_menu_btn {
+    display: none;
+    color: var(--text-muted);
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: var(--bg);
+      color: var(--primary);
+    }
+
+    @media (max-width: 991px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -154,6 +178,12 @@
     width: 14px;
     height: 14px;
     color: var(--text-muted);
+  }
+}
+
+@media (max-width: 991px) {
+  .topbar {
+    padding: 0 15px;
   }
 }
 

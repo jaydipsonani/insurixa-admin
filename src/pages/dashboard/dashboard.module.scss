@@ -5,6 +5,12 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   h1 {
     font-size: 1.8rem;
@@ -219,6 +225,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .action_item {
