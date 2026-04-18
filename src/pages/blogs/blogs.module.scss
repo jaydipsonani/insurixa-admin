@@ -200,6 +200,14 @@
   width: 100%;
 }
 
+.table_scroll {
+  width: 100%;
+  overflow: auto;
+  max-height: calc(100vh - 260px);
+  min-height: 320px;
+  border-radius: 0 0 12px 12px;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;

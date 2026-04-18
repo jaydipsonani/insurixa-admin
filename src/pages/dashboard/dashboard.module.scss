@@ -163,7 +163,12 @@
 
 .table_wrapper {
   width: 100%;
-  overflow-x: auto;
+  overflow: auto;
+  max-height: calc(100vh - 320px);
+  min-height: 320px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--card);
 }
 
 .table {

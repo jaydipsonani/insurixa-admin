@@ -4,10 +4,10 @@ import DataTable from '@/components/DataTable';
 import Badge from '@/components/Badge';
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
-import { 
-  Plus, 
-  Trash2, 
-  Edit3, 
+import {
+  Plus,
+  Trash2,
+  Edit3,
   FileText,
   ShieldCheck,
   User,
@@ -21,10 +21,18 @@ const policiesData = [
   { id: 'POL-7732', customer: 'Rahul Sharma', type: 'Third Party Bike', insurer: 'ICICI Lombard', premium: '$120', expiry: '2024-11-05', status: 'Expiring Soon' },
   { id: 'POL-9921', customer: 'Amit Shah', type: 'Zero Dep Car', insurer: 'Tata AIG', premium: '$580', expiry: '2025-01-20', status: 'Active' },
   { id: 'POL-4412', customer: 'Suresh Raina', type: 'Basic Bike', insurer: 'Reliance General', premium: '$95', expiry: '2023-10-15', status: 'Expired' },
+  { id: 'POL-8821', customer: 'Jaydip Patola', type: 'Comprehensive Car', insurer: 'HDFC Ergo', premium: '$450', expiry: '2024-12-10', status: 'Active' },
+  { id: 'POL-7732', customer: 'Rahul Sharma', type: 'Third Party Bike', insurer: 'ICICI Lombard', premium: '$120', expiry: '2024-11-05', status: 'Expiring Soon' },
+  { id: 'POL-9921', customer: 'Amit Shah', type: 'Zero Dep Car', insurer: 'Tata AIG', premium: '$580', expiry: '2025-01-20', status: 'Active' },
+  { id: 'POL-4412', customer: 'Suresh Raina', type: 'Basic Bike', insurer: 'Reliance General', premium: '$95', expiry: '2023-10-15', status: 'Expired' },
+  { id: 'POL-8821', customer: 'Jaydip Patola', type: 'Comprehensive Car', insurer: 'HDFC Ergo', premium: '$450', expiry: '2024-12-10', status: 'Active' },
+  { id: 'POL-7732', customer: 'Rahul Sharma', type: 'Third Party Bike', insurer: 'ICICI Lombard', premium: '$120', expiry: '2024-11-05', status: 'Expiring Soon' },
+  { id: 'POL-9921', customer: 'Amit Shah', type: 'Zero Dep Car', insurer: 'Tata AIG', premium: '$580', expiry: '2025-01-20', status: 'Active' },
+  { id: 'POL-4412', customer: 'Suresh Raina', type: 'Basic Bike', insurer: 'Reliance General', premium: '$95', expiry: '2023-10-15', status: 'Expired' },
 ];
 
 const PoliciesPage = () => {
-  const [isDrawerOpen, setIsDrawerOpen ] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [editingPolicy, setEditingPolicy] = useState<any>(null);
 
   const handleEdit = (policy: any) => {
@@ -44,8 +52,8 @@ const PoliciesPage = () => {
 
   const columns = [
     { header: 'Policy ID', accessor: 'id' as any, sortable: true },
-    { 
-      header: 'Customer', 
+    {
+      header: 'Customer',
       accessor: (p: any) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <User size={14} color="var(--text-muted)" /> {p.customer}
@@ -55,16 +63,16 @@ const PoliciesPage = () => {
     { header: 'Type', accessor: 'type' as any },
     { header: 'Insurer', accessor: 'insurer' as any },
     { header: 'Premium', accessor: 'premium' as any },
-    { 
-      header: 'Status', 
+    {
+      header: 'Status',
       accessor: (p: any) => (
         <Badge type={p.status === 'Active' ? 'success' : p.status === 'Expired' ? 'error' : 'warning'}>
           {p.status}
         </Badge>
       )
     },
-    { 
-      header: 'Actions', 
+    {
+      header: 'Actions',
       accessor: (p: any) => (
         <div style={{ display: 'flex', gap: '8px' }}>
           <button className={styles.action_btn} onClick={() => handleEdit(p)}><Edit3 size={16} /></button>

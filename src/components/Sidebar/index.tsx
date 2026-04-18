@@ -16,6 +16,7 @@ import {
   Settings, 
   LogOut,
   ChevronRight,
+  ChevronLeft,
   Building2
 } from 'lucide-react';
 import styles from './Sidebar.module.scss';
@@ -113,8 +114,19 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, isMobileOpen, toggleSide
   return (
     <aside className={sidebarClasses}>
       <div className={styles.sidebar_header}>
-        <div className={styles.logo}>I</div>
-        <span className={styles.logo_text}>INSURIXA</span>
+        <div className={styles.brand_wrap}>
+          <div className={styles.logo}>I</div>
+          <span className={styles.logo_text}>INSURIXA</span>
+        </div>
+
+        <button
+          className={styles.collapse_btn}
+          onClick={toggleSidebar}
+          aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          type="button"
+        >
+          {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+        </button>
       </div>
 
       <nav className={styles.menu_list}>

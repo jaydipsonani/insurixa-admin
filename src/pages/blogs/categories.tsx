@@ -60,8 +60,9 @@ const BlogCategoriesPage = () => {
       </div>
 
       <Card noPadding>
-        <table className={styles.table}>
-          <thead>
+        <div className={styles.table_scroll}>
+          <table className={styles.table}>
+            <thead>
             <tr>
               <th>Category Name</th>
               <th>Slug</th>
@@ -84,7 +85,8 @@ const BlogCategoriesPage = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+          </table>
+        </div>
       </Card>
 
       {/* Edit Modal */}

@@ -2,6 +2,10 @@
 
 .table_container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  max-height: calc(100vh - 220px);
 }
 
 .table_actions {
@@ -56,7 +60,9 @@
 }
 
 .table_wrapper {
-  overflow-x: auto;
+  flex: 1;
+  overflow: auto;
+  min-height: 320px;
   border-radius: 10px;
   border: 1px solid var(--border);
   background-color: var(--card);
